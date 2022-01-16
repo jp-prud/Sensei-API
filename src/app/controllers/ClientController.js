@@ -16,7 +16,7 @@ class ClientController {
 
     if (!client) {
       return response.status(404).json(
-        { message: 'No client found' },
+        { error: 'No client found' },
       );
     }
 
@@ -41,7 +41,7 @@ class ClientController {
     });
 
     return response.status(200).json(
-      { message: `${newClient.name}, criou a sua conta` },
+      { error: `${newClient.name}, criou a sua conta` },
     );
   }
 
@@ -78,7 +78,7 @@ class ClientController {
     });
 
     response.status(200).json({
-      message: `Cliente ${updatedClient.name} foi atualizado`,
+      error: `Cliente ${updatedClient.name} foi atualizado`,
     });
   }
 
@@ -89,14 +89,14 @@ class ClientController {
 
     if (!clientExist) {
       return response.status(404).json(
-        { message: 'Cliente não encontrado' },
+        { error: 'Cliente não encontrado' },
       );
     }
 
     const client = await ClientsRepository.delete(id);
 
     response.status(200).json({
-      message: `${client.name} foi excluído`,
+      error: `${client.name} foi excluído`,
     });
   }
 }

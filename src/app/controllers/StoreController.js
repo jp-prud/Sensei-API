@@ -47,7 +47,7 @@ class StoreController {
     const store = await StoresRepository.create(name);
 
     response.status(200).json({
-      message: `${store.name} foi criado`,
+      error: `${store.name} foi criado`,
     });
   }
 
@@ -65,7 +65,7 @@ class StoreController {
     const store = await StoresRepository.delete(id);
 
     response.status(200).json({
-      message: `${store.name} foi excluído`,
+      error: `${store.name} foi excluído`,
     });
   }
 }
